@@ -13,9 +13,13 @@ router.get('/history', function(req, res, next) {
 	res.send(chatHistory);
 });
 router.post('/history', function(req, res, next) {
-	var date = new Date();
-
-	chatHistory.push({ message: req.body.message, nickname: req.body.nickname, date: date });
+	chatHistory.push({
+		name: req.body.nickname,
+		content: req.body.message,
+		date: date,
+		firstmessage: req.body.firstmessage,
+		changename: req.body.changename
+	});
 	res.json({ message: 'History created!' });
 });
 module.exports = router;
