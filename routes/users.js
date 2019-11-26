@@ -16,9 +16,9 @@ router.post('/history', function(req, res, next) {
 	chatHistory.push({
 		name: req.body.name,
 		content: req.body.content,
-		date: req.body.date,
+		timesent: req.body.timesent,
 		firstmessage: req.body.firstmessage,
-		changename: req.body.changename
+		namechange: req.body.namechange
 	});
 	res.json({ message: 'History created!' });
 });
