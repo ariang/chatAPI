@@ -14,8 +14,8 @@ router.get('/history', function(req, res, next) {
 });
 router.post('/history', function(req, res, next) {
 	chatHistory.push({
-		name: req.body.nickname,
-		content: req.body.message,
+		name: req.body.name,
+		content: req.body.content,
 		date: req.body.date,
 		firstmessage: req.body.firstmessage,
 		changename: req.body.changename
