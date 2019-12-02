@@ -9,9 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET users listing. */
-router.get('/history', function(req, res, next) {
+router.get('/history/change', function(req, res, next) {
 	res.send(changed);
-	next();
 });
 router.get('/history', function(req, res, next) {
 	res.send(chatHistory);
