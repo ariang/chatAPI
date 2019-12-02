@@ -25,8 +25,11 @@ router.post('/history', function(req, res, next) {
 		namechange: req.body.namechange
 	});
 	changed = true;
+
+	//Zuerst wird geprüft ob Message Array grässer als 11 ist
 	if (chatHistory.length > 20) {
 		console.log(chatHistory.length);
+		//Von ersten bis zur zwangigsten nachricht werden alle gelöscht aus dem Array
 		chatHistory.splice(0, chatHistory.length - 19);
 	}
 	res.json({ message: 'History created!' });
