@@ -25,6 +25,10 @@ router.post('/history', function(req, res, next) {
 		namechange: req.body.namechange
 	});
 	changed = true;
+	if (chatHistory.length > 20) {
+		console.log(chatHistory.length);
+		chatHistory.splice(0, chatHistory.length - 19);
+	}
 	res.json({ message: 'History created!' });
 });
 module.exports = router;
