@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var chatHistory = [];
-var nicknames = [];
+var changed = false;
 
 router.get('/', function(req, res, next) {
 	res.send({ message: 'fhs chat-app api works' });
@@ -10,7 +10,12 @@ router.get('/', function(req, res, next) {
 
 /* GET users listing. */
 router.get('/history', function(req, res, next) {
+	res.send(changed);
+	next();
+});
+router.get('/history', function(req, res, next) {
 	res.send(chatHistory);
+	changed = false;
 });
 router.post('/history', function(req, res, next) {
 	chatHistory.push({
@@ -20,6 +25,7 @@ router.post('/history', function(req, res, next) {
 		firstmessage: req.body.firstmessage,
 		namechange: req.body.namechange
 	});
+	changed = true;
 	res.json({ message: 'History created!' });
 });
 module.exports = router;
