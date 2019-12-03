@@ -22,7 +22,8 @@ router.post('/history', function(req, res, next) {
 		content: req.body.content,
 		timesent: req.body.timesent,
 		firstmessage: req.body.firstmessage,
-		namechange: req.body.namechange
+		namechange: req.body.namechange,
+		color: req.body.color
 	});
 	changed = true;
 
