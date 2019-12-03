@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 var chatHistory = [];
-var changed = false;
+var nicknames = [];
+//var changed = false;
 
 router.get('/', function(req, res, next) {
 	res.send({ message: 'fhs chat-app api works' });
@@ -10,11 +11,19 @@ router.get('/', function(req, res, next) {
 
 /* GET users listing. */
 router.get('/history/change', function(req, res, next) {
-	res.send(changed);
+	for (var i; i < nicknames.length; i++) {
+		if (Object.nicknames.keys('name') == req.body.name) {
+			res.send(Object.nicknames[i].changed);
+		}
+	}
 });
 router.get('/history', function(req, res, next) {
 	res.send(chatHistory);
-	changed = false;
+	for (var i; i < nicknames.length; i++) {
+		if (Object.nicknames.keys('name') == req.body.name) {
+			Object.nicknames[i].changed = false;
+		}
+	}
 });
 router.post('/history', function(req, res, next) {
 	chatHistory.push({
@@ -24,9 +33,21 @@ router.post('/history', function(req, res, next) {
 		firstmessage: req.body.firstmessage,
 		namechange: req.body.namechange
 	});
-	changed = true;
+	for (var i; i < nicknames.length; i++) {
+		if (Object.nicknames.keys('name') == req.body.name) {
+			Object.nicknames[i].changed = true;
+		} else {
+			nicknames.push({
+				name: req.body.name,
+				changed: true
+			});
+			Object.nicknames[i].changed = true;
+		}
+	}
 
-	//Zuerst wird geprüft ob Message Array grässer als 11 ist
+	//changed = true;
+
+	//Zuerst wird geprüft ob Message Array grösser als 11 ist
 	if (chatHistory.length > 20) {
 		console.log(chatHistory.length);
 		//Von ersten bis zur zwangigsten nachricht werden alle gelöscht aus dem Array
