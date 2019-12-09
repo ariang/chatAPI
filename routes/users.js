@@ -14,7 +14,6 @@ router.get('/history/change', function(req, res, next) {
 });
 router.get('/history', function(req, res, next) {
 	res.send(chatHistory);
-	changed = false;
 });
 router.post('/history', function(req, res, next) {
 	chatHistory.push({
