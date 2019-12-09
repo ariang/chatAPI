@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var chatHistory = [];
-var changed = false;
+var count = 0;
 
 router.get('/', function(req, res, next) {
 	res.send({ message: 'fhs chat-app api works' });
@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 /* GET users listing. */
 router.get('/history/change', function(req, res, next) {
-	res.send(changed);
+	res.send(count);
 });
 router.get('/history', function(req, res, next) {
 	res.send(chatHistory);
@@ -25,7 +25,7 @@ router.post('/history', function(req, res, next) {
 		namechange: req.body.namechange,
 		color: req.body.color
 	});
-	changed = true;
+	count = count++;
 
 	//Zuerst wird geprüft ob Message Array grässer als 11 ist
 	if (chatHistory.length > 20) {
