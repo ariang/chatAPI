@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 /* GET users listing. */
 router.get('/history/change', function(req, res, next) {
-	res.send(count.c);
+	res.send(count);
 });
 router.get('/history', function(req, res, next) {
 	res.send(chatHistory);
