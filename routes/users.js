@@ -24,7 +24,7 @@ router.post('/history', function(req, res, next) {
 		namechange: req.body.namechange,
 		color: req.body.color
 	});
-	count.c = count.c++;
+	count[0].c = count[0].c + 1;
 
 	//Zuerst wird geprüft ob Message Array grässer als 11 ist
 	if (chatHistory.length > 20) {
