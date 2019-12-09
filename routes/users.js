@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var chatHistory = [];
-var count = [ { c: '0' } ];
+var count = [ { c: 0 } ];
 
 router.get('/', function(req, res, next) {
 	res.send({ message: 'fhs chat-app api works' });
