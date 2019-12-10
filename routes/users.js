@@ -37,7 +37,7 @@ router.put('/history/name/:id', function (req, res, next) {
 
 router.delete('/history/name/:id', function (req, res, next) {
 	nicknames.forEach(function (item, index, object) {
-		if (item.id===req.params.id) {
+		if (item.id.localeCompare(req.params.id)==0) {
 			object.splice(index, 1);
 		}
 	});
