@@ -20,10 +20,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
-app.use((req, res, next) => {
-	res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE")
-});
-
 // CORS Policy, welche Webseiten können Rest aufrufen
 /*var allowedOrigins = [ 'http://localhost:4200', 'https://bluechat.herokuapp.com', 'http://bluechat.herokuapp.com' ];
 app.use(
