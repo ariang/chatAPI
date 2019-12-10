@@ -55,14 +55,7 @@ router.post('/history/name', function (req, res, next) {
 				nickname.name=req.body.name
 				break;
 			} else {
-				nicknames.push(
-					{
-						id: req.body.id,
-						name: req.body.name,
-						color: req.body.color
-					}
-				)
-				break;
+				nicknames=[];
 			}
 
 		}
