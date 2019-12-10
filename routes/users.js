@@ -27,7 +27,8 @@ router.post('/history', function (req, res, next) {
 		timesent: req.body.timesent,
 		firstmessage: req.body.firstmessage,
 		namechange: req.body.namechange,
-		color: req.body.color
+		color: req.body.color,
+		id: req.body.id
 	});
 	count[0].c=count[0].c+1;
 	//Zuerst wird geprüft ob Message Array grösser als 11 ist
@@ -40,19 +41,22 @@ router.post('/history', function (req, res, next) {
 });
 router.post('/history/name', function (req, res, next) {
 	if (nicknames===undefined||nicknames.length==0) {
+		var id=req.body.id;
 		nicknames.push(
 			{
+				id: req.body.id,
 				name: req.body.name
 			}
 		)
 	} else {
 		for (var nickname of nicknames) {
-			if (nickname.name==req.body.oldname) {
+			if (nickname.id==req.body.id) {
 				nickname.name=req.body.name
 				return;
 			} else {
 				nicknames.push(
 					{
+						id: req.body.id,
 						name: req.body.name
 					}
 				)
