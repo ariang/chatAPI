@@ -48,11 +48,12 @@ router.post('/history/name', function (req, res, next) {
 				color: req.body.color
 			}
 		)
+		return;
 	} else {
 		for (var nickname of nicknames) {
 			if (nickname.id.localeCompare(req.body.id)==0) {
 				nickname.name=req.body.name
-				return;
+				break;
 			} else {
 				nicknames.push(
 					{
@@ -61,7 +62,7 @@ router.post('/history/name', function (req, res, next) {
 						color: req.body.color
 					}
 				)
-				return;
+				break;
 			}
 
 		}
