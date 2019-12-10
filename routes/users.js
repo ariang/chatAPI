@@ -26,6 +26,7 @@ router.get('/history/name/:id', function (req, res, next) {
 		}
 	}
 });
+/*
 router.put('/history/name/:id', function (req, res, next) {
 	for (var nickname of nicknames) {
 		if (nickname.id.localeCompare(req.params.id)==0) {
@@ -33,7 +34,7 @@ router.put('/history/name/:id', function (req, res, next) {
 		}
 	}
 });
-
+*/
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
 		name: req.body.name,
