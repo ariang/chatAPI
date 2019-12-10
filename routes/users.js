@@ -49,7 +49,7 @@ router.post('/history/name', function (req, res, next) {
 		for (var nickname of nicknames) {
 			if (nickname.name==req.body.oldname) {
 				nickname.name=req.body.name
-
+				return;
 			} else {
 				nicknames.push(
 					{
