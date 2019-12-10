@@ -26,6 +26,13 @@ router.get('/history/name/:id', function (req, res, next) {
 		}
 	}
 });
+router.put('/history/name/:id', function (req, res, next) {
+	for (var nickname of nicknames) {
+		if (nickname.id.localeCompare(req.params.id)==0) {
+			nickname.name=req.body.name
+		}
+	}
+});
 
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
@@ -57,17 +64,6 @@ router.post('/history/name', function (req, res, next) {
 			}
 		)
 		return;
-	} else {
-		for (var nickname of nicknames) {
-			if (nickname.id.localeCompare(req.body.id)==0) {
-				nickname.name=req.body.name
-				break;
-			} else {
-				nicknames=[];
-			}
-
-		}
 	}
-
 });
 module.exports=router;
