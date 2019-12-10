@@ -34,7 +34,7 @@ router.put('/history/name/:id', function (req, res, next) {
 		}
 	}
 });
-
+//deleted names im array
 router.delete('/history/name/:id', function (req, res, next) {
 	const requestId=req.params.id;
 
