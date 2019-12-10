@@ -36,11 +36,16 @@ router.put('/history/name/:id', function (req, res, next) {
 });
 
 router.delete('/history/name/:id', function (req, res, next) {
-	nicknames.forEach(function (item, index, object) {
-		if (item.id.localeCompare(req.params.id)==0) {
-			object.splice(index, 1);
-		}
-	});
+	const requestId=req.params.id;
+
+	let nickname=nicknames.filter(nickname => {
+		return nickname.id==requestId;
+	})[0];
+	const index=nicknames.indexOf(nickname);
+
+	nicknames.splice(index, 1);
+
+	Response.json({ message: `user ${requestId} deleted` })
 });
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
