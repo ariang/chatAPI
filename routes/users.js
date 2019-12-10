@@ -41,7 +41,6 @@ router.post('/history', function (req, res, next) {
 });
 router.post('/history/name', function (req, res, next) {
 	if (nicknames===undefined||nicknames.length==0) {
-		var id=req.body.id;
 		nicknames.push(
 			{
 				id: req.body.id,
@@ -50,7 +49,8 @@ router.post('/history/name', function (req, res, next) {
 		)
 	} else {
 		for (var nickname of nicknames) {
-			if (nickname.id==req.body.id) {
+			string1.localeCompare(string2)
+			if (nickname.id.localeCompare(req.body.id)==0) {
 				nickname.name=req.body.name
 				return;
 			} else {
