@@ -26,7 +26,7 @@ router.get('/history/name/:id', function (req, res, next) {
 		}
 	}
 });
-
+//aktaulisiere den Namen im Array
 router.put('/history/name/:id', function (req, res, next) {
 	for (var nickname of nicknames) {
 		if (nickname.id.localeCompare(req.params.id)==0) {
@@ -35,6 +35,13 @@ router.put('/history/name/:id', function (req, res, next) {
 	}
 });
 
+router.delete('/history/name/:id', function (req, res, next) {
+	for (var nickname of nicknames) {
+		if (nickname.id.localeCompare(req.params.id)==0) {
+			nicknames.pop(nickname);
+		}
+	}
+});
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
 		name: req.body.name,
