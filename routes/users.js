@@ -22,7 +22,7 @@ router.get('/history/name', function (req, res, next) {
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
 		name: req.body.name,
-		oname: req.body.oname,
+		oldname: req.body.oldname,
 		content: req.body.content,
 		timesent: req.body.timesent,
 		firstmessage: req.body.firstmessage,
