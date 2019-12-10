@@ -49,7 +49,6 @@ router.post('/history/name', function (req, res, next) {
 		)
 	} else {
 		for (var nickname of nicknames) {
-			string1.localeCompare(string2)
 			if (nickname.id.localeCompare(req.body.id)==0) {
 				nickname.name=req.body.name
 				return;
