@@ -45,7 +45,7 @@ router.delete('/history/name/:id', function (req, res, next) {
 
 	nicknames.splice(index, 1);
 
-	Response.json({ message: `user ${requestId} deleted` })
+	res.json({ message: `user ${requestId} deleted` })
 });
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
