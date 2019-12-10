@@ -45,18 +45,21 @@ router.post('/history/name', function (req, res, next) {
 				name: req.body.name
 			}
 		)
-	}
-	for (var nickname of nicknames) {
-		if (nickname.name==req.body.oldname) {
-			nickname.name=req.body.name
-		} else {
-			nicknames.push(
-				{
-					name: req.body.name
-				}
-			)
-		}
+	} else {
+		for (var nickname of nicknames) {
+			if (nickname.name==req.body.oldname) {
+				nickname.name=req.body.name
 
+			} else {
+				nicknames.push(
+					{
+						name: req.body.name
+					}
+				)
+				return;
+			}
+
+		}
 	}
 
 });
