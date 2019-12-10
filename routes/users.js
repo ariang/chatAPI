@@ -24,7 +24,9 @@ router.get('/history/name/:id', function (req, res, next) {
 		if (nickname.id.localeCompare(req.params.id)==0) {
 			res.send(nickname)
 		}
-	});
+	}
+});
+
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
 		name: req.body.name,
