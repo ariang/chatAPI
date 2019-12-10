@@ -19,7 +19,7 @@ router.get('/history', function (req, res, next) {
 router.get('/history/name', function (req, res, next) {
 	res.send(nicknames);
 });
-router.post('/history/name', function (req, res, next) {
+router.post('/history', function (req, res, next) {
 	chatHistory.push({
 		name: req.body.name,
 		oname: req.body.oname,
@@ -30,13 +30,7 @@ router.post('/history/name', function (req, res, next) {
 		color: req.body.color
 	});
 	count[0].c=count[0].c+1;
-
-	if (req.body.namechange) {
-		nicknames.push({
-			name: req.body.name
-		});
-	}
-	//Zuerst wird geprüft ob Message Array grässer als 11 ist
+	//Zuerst wird geprüft ob Message Array grösser als 11 ist
 	if (chatHistory.length>20) {
 		console.log(chatHistory.length);
 		//Von ersten bis zur zwangigsten nachricht werden alle gelöscht aus dem Array
