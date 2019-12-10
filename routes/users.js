@@ -44,7 +44,8 @@ router.post('/history/name', function (req, res, next) {
 		nicknames.push(
 			{
 				id: req.body.id,
-				name: req.body.name
+				name: req.body.name,
+				color: req.body.color
 			}
 		)
 	} else {
@@ -56,7 +57,8 @@ router.post('/history/name', function (req, res, next) {
 				nicknames.push(
 					{
 						id: req.body.id,
-						name: req.body.name
+						name: req.body.name,
+						color: req.body.color
 					}
 				)
 				return;
