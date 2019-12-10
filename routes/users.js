@@ -45,8 +45,18 @@ router.post('/history/name', function (req, res, next) {
 	res.json({ message: 'History created!' });
 });
 router.post('/history/name', function (req, res, next) {
-	nicknames.push({
-		name: req.body.name
-	})
+	for (var nickname of nicknames) {
+		if (nickname.name==req.body.oldname) {
+			nickname.name=req.body.name
+		} else {
+			nicknames.push(
+				{
+					name: req.body.name
+				}
+			)
+		}
+
+	}
+
 });
 module.exports=router;
