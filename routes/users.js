@@ -36,11 +36,11 @@ router.put('/history/name/:id', function (req, res, next) {
 });
 
 router.delete('/history/name/:id', function (req, res, next) {
-	for (var nickname of nicknames) {
-		if (nickname.id.localeCompare(req.params.id)==0) {
-			nicknames.pop(nickname);
+	nicknames.forEach(function (item, index, object) {
+		if (item.id===req.params.id) {
+			object.splice(index, 1);
 		}
-	}
+	});
 });
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
