@@ -19,6 +19,12 @@ router.get('/history', function (req, res, next) {
 router.get('/history/name', function (req, res, next) {
 	res.send(nicknames);
 });
+router.get('/history/name/:id', function (req, res, next) {
+	for (var nickname of nicknames) {
+		if (nickname.id.localeCompare(req.params.id)==0) {
+			res.send(nickname)
+		}
+	});
 router.post('/history', function (req, res, next) {
 	chatHistory.push({
 		name: req.body.name,
